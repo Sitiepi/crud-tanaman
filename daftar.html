@@ -1,0 +1,41 @@
+  <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daftar Tanaman</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  <div class="container">
+    
+    <h1>Daftar Tanaman</h1>
+    <a href="index.html">Beranda</a>
+    <br />
+    <a href="tambah.html" class="button"> Tambah Tanaman</a>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Tanaman</th>
+          <th>Warna</th>
+          <th>Jenis</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tabelData"></tbody>
+    </table>
+  </div>
+  
+    <script type="module">
+    import {tampilkanDaftarTanaman} from './main.js'
+    
+    tampilkanDaftarTanaman()
+  </script>
+
+</body>
+
+</html>
