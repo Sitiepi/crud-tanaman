@@ -68,7 +68,18 @@ a.button.secondary {
 }
 
 img {
-  width: 15cm; 
+  width: 13cm; 
   display: block; 
   margin: 0 auto;
+}
+
+body {
+  background-color: lightskyblue;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background-color: skyblue;
+  padding: 20px;
+  border-radius: 15px;
 }

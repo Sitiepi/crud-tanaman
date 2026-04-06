@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ubah Data Tanaman</title>
+  
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Form Ubah Tanaman</h1>
+    <form id="formUbah">
+
+      
+      <label> Nama Tanaman</label>
+      <input type="text" id="namatanaman" />
+      
+      <label>warna</label>
+      <input type="text" id="warna"/>
+        
+        <label>jenis</label>
+      <select id="jenis">
+        <option value="perdu">Perdu</option>
+        <option value="kayu">Kayu</option>
+        <option value="herbal">Herbal</option>
+      </select>
+        
+      <button id="tombol" type="submit">simpan</button>
+      <a href="daftar.html">Daftar Tanaman</a>
+    </form>
+  </div>
+  
+  <script type="module">
+    import { ambilDataTanaman, ubahDataTanaman } from './main.js'
+    
+    //mengambil id dari url
+    const urlParams = new URLSearchParams(window.location.search)
+    const idTanaman = urlParams.get('id')
+    console.log(idTanaman)
+    //mengisi form dengan data barang yang diambil dari firebase 
+    
+    const tanaman = await ambilDataTanaman(idTanaman)
+    console.log(tanaman)
+    
+    document.getElementById('namatanaman').value = tanaman.namatanaman
+    document.getElementById('warna').value = tanaman.warna
+    document.getElementById('jenis').value = tanaman.jenis
+    
+    const formUbah = document.getElementById('formUbah')
+    
+    formUbah.addEventListener('submit', function(e) {
+      e.preventDefault()
+      
+      const namatanaman = document.getElementById('namatanaman').value
+      const warna = document.getElementById('warna').value
+      const jenis = document.getElementById('jenis').value 
+      
+      ubahDataTanaman(idTanaman,namatanaman,warna,jenis)
+      
+    })
+  </script>
+  
+</body>
+
+</html>

@@ -51,8 +51,8 @@ export async function tampilkanDaftarTanaman() {
     no.textContent = tabel.rows.length + 1
     
     //buat element kolom untuk nama tanaman 
-    const namaTanaman = document.createElement("td")
-    namaTanaman.textContent = data.namatanaman
+    const namatanaman = document.createElement("td")
+    namatanaman.textContent = data.namatanaman
     
     //buat element kolom untuk warna 
     const warna = document.createElement("td")
@@ -85,7 +85,7 @@ export async function tampilkanDaftarTanaman() {
     
     //tambah kolom kedalam baris
     baris.appendChild(no)
-    baris.appendChild(namaTanaman)
+    baris.appendChild(namatanaman)
     baris.appendChild(warna)
     baris.appendChild(jenis)
     baris.appendChild(aksi)
@@ -124,16 +124,16 @@ export async function hapusTanaman(id) {
 
 //fungsi untuk menampilkan data barang berdasarkan id
 export async function ambilDataTanaman(id) {
-  const docRef = doc(db, "barang", id)
+  const docRef = doc(db, "tanaman", id)
   const docSnap = await getDoc(docRef)
   
   return await docSnap.data()
 }
 
 //fiungsi untuk mengubah data barang
-export async function ubahDataTanaman(id, namaTanaman, warna, stok) {
+export async function ubahDataTanaman(id, namatanaman, warna, jenis) {
   await updateDoc(doc(db, "tanaman", id), {
-    namaTanaman: namaTanaman,
+    namatanaman: namatanaman,
     warna: warna,
     jenis: jenis
   })
